@@ -59,6 +59,15 @@ def cosine_proximity(y_true, y_pred):
     y_true = K.l2_normalize(y_true, axis=-1)
     y_pred = K.l2_normalize(y_pred, axis=-1)
     return -K.mean(y_true * y_pred, axis=-1)
+'''
+
+'''
+def itakura_saito_divergence(y_true, y_pred):
+    return (y_true/y_pred) - K.log(y_true/y_pred) - 1
+'''
+'''
+def cauchy(y_true, y_pred):
+    return (3/2) * K.log(y_true**2 + y_pred**2) - K.log(y_true)
 
 
 # Aliases.
@@ -69,6 +78,7 @@ mape = MAPE = mean_absolute_percentage_error
 msle = MSLE = mean_squared_logarithmic_error
 kld = KLD = kullback_leibler_divergence
 cosine = cosine_proximity
+isd= ISD = itakura_saito_divergence
 
 
 def get(identifier):
